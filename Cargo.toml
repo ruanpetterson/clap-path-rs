@@ -1,0 +1,20 @@
+[package]
+name = "clap-path"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = ["json", "toml"]
+json = ["serde_json"]
+toml = ["dep:toml"]
+
+[dependencies]
+anyhow = "1.0.71"
+clap = { version = "4.3.11", features = ["derive", "error-context"] }
+serde = { version = "1.0.166", features = ["derive"] }
+serde_json = { version = "1.0.100", optional = true }
+toml = { version = "0.7.5", optional = true }
+
+[[example]]
+name = "json"
+required-features = ["json"]
